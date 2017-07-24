@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+.form-group.required .control-label:after { 
+   content:"*";
+   color:red;
+}
+
+</style>
+</head>
+<body>
+<br>
+<br><br>
+<br>
+<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+<div class="container">
+  <div class="row">
+  <h4>Post a Job</h4>
+ <div class="col col-md-2"></div>
+    <div class="col col-md-8">
+  <form ng-submit="jc.submit()">
+  <div class="form-group required">
+    <label for="exampleInputEmail1" class='control-label'>Job Title</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Senior Mobile Developer" ng-model="jc.job.title">
+    <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+  </div>
+  <div class="form-group required">
+    <label for="exampleInputPassword1" class='control-label'>Company Name</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Infosys" ng-model="jc.job.companyName">
+  </div>
+    <div class="form-group required">
+    <label for="exampleInputPassword1" class='control-label'>Technical Knowledge</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="C Programming" ng-model="jc.job.technicalKnowledge">
+  </div>
+ <div class="form-group required">
+    <label for="exampleInputPassword1" class='control-label'>Email</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="kavitha@gmail.com" ng-model="jc.job.email" >
+  </div>
+  <div class="form-group required">
+    <label for="exampleSelect1" class='control-label'>Status</label>
+    <select class="form-control" id="exampleSelect1" ng-model="jc.job.status">
+      <option>Online</option>
+      <option>Offline</option>
+    </select>
+  </div>
+ 
+   <div class="form-group required">
+    <label for="exampleInputPassword1" class='control-label'>Qualification</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="B.E" ng-model="jc.job.qualification">
+  </div>
+ 
+
+  
+    <ul class="media-date text-uppercase reviews list-inline">
+    <li class="mm"><button type="submit" class="btn btn-primary">Preview</button></li>
+    <li class="aaaa"><button type="submit" class="btn btn-success">Submit</button></li>
+  
+  </ul>
+</form>
+</div>
+  <div class="col col-md-2"></div>
+
+</div>
+</div>
+</body>
+</html>

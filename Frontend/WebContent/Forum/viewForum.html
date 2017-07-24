@@ -1,0 +1,111 @@
+<h4 style="float: right; margin: 0px 0px 0px 0px;"><a href="#forum" ng-show="currentUser.name">Create New Forum</a></h4>
+
+
+<div class="row" ng-repeat="for in fc.forumsAccept">
+
+
+  <div class="viewBlog" style="margin-left:2em; white-space: nowrap;">
+
+	<h2><span ng-bind="for.userName"></span></h2>
+   <h3 style="margin-left: 0.5em; float: left; color: green;"><span ng-bind="for.forumTitle"></span></h3>
+
+   <a ng-click="forum.edit(u.id)"><span class="glyphicon glyphicon-pencil editContent"></span></a>
+   <a  ng-click="forum.remove(u.id)" ><span class="glyphicon glyphicon-trash editContent"></span></a>
+  <!--  <hr style="clear: both;" /> -->
+ 
+
+  <div >
+  <hr style="margin-top: 3em;">
+  <h4><span style="width:50px" ng-bind="for.forumContent"></span></h4>...
+  
+  
+  </div>
+   <h4><span ng-bind="for.status"></span></h4>
+   <hr style="margin-top: 0em;">
+  <div class="desc">
+  <!-- <button type="button" ng-click="blog.get(u)" style="float: right;">Read More ></button> -->
+  </div>
+  <form>
+
+</div>
+
+</form>
+ </div>
+</div>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<style>
+.agenda {  }
+
+/* Dates */
+.agenda .agenda-date { width: 170px; }
+.agenda .agenda-date .dayofmonth {
+  width: 40px;
+  font-size: 36px;
+  line-height: 36px;
+  float: left;
+  text-align: right;
+  margin-right: 10px; 
+}
+.agenda .agenda-date .shortdate {
+  font-size: 0.75em; 
+}
+
+
+/* Times */
+.agenda .agenda-time { width: 140px; } 
+
+
+/* Events */
+.agenda .agenda-events {  } 
+.agenda .agenda-events .agenda-event {  } 
+
+@media (max-width: 767px) {
+    
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="row">   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+              <th>2015 IRS Forum</th>
+              <th>IRS Forum Dates</th>        
+            </tr>
+          </thead>
+          <tbody>
+          <div class="row" ng-repeat="for in fc.forumsAccept">
+           <tr>
+        <a ng-click="blog.edit(u.id)"><span class="glyphicon glyphicon-pencil editContent"></span></a>
+   <a  ng-click="blog.remove(u.id)" ><span class="glyphicon glyphicon-trash editContent"></span></a>
+            <td><span ng-bind="for.userName"></span>
+            <h3 style="margin-left: 0.5em; float: left; color: green;"><span ng-bind="for.forumTitle"></span></h3>
+            <hr style="margin-top: 3em;">
+  <h4><span style="width:50px" ng-bind="for.forumContent"></span></h4>
+            
+            <!-- <a href="https://aws.passkey.com/g/42238120" target="_blank">Gaylord National Hotel Convention Center</a><br/>
+            <i class="fa fa-map-marker"></i> 201 Waterfront Street<br/>National Harbor, MD 20745</td>
+            <td>July 7 - 9, 2015</td> -->
+          </tr>
+          </div>
+   </tbody>
+      </table>
+     </div>
+
+    </div>
+
+   </div>
+   
+   </body>
+   </html>

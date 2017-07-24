@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+@import "bourbon";
+
+html, body {
+  @include background-image(linear-gradient(to bottom, hsl(85,90%,57%) 0%,hsl(63,100%,77%) 100%));
+    height: 100%;
+    font-family: Verdana;
+    font-size: 14px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+* {
+    @include box-sizing(border-box);
+}
+ b {
+   font-weight: bold;   
+ }
+    
+.post {
+  background: white;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
+  /* only for the example simulates that we are at the end of the article */
+  margin-top: -150px;
+  
+  &__content {
+    padding: 20px;  
+  }
+  
+  &__comments {
+    &__lasts, &__new{
+      padding: 0;
+    }
+    &__lasts{
+      background: rgba(#CCC, 0.1);
+    }
+        
+    &__comment {
+      padding: 20px;
+      position: relative;
+      list-style: none; 
+      &:nth-child(2n) {
+        background: rgba(#CCC, 0.1);
+      }
+          
+      img {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border-radius: 50%;
+      }
+      
+      &__content {
+        display: block;
+        width: 80%;
+        text-align: justify;
+      }
+    }
+    
+    &__new {
+      ul {margin: 0;}
+      .post__comments__comment {
+        padding: 10px;
+      }
+      &::before {
+        content: 'Draft';
+        margin-left: 20px;
+        color: #CCC;
+        font-style: italic;
+      }
+      &__make {
+        padding-left: 20px;
+        color: darken(#CCC, 20%);
+      }
+      input, textarea {
+        margin: 5px;
+      }
+    }
+  }
+}
+</style>
+
+</head>
+<body>
+
+
+<section class="post" ">
+  
+  <footer class="post__comments">
+    <ul class="post__comments__lasts">
+      <li class="post__comments__comment" >
+       <div><h1 style="margin-top: 2em;">{{viewBlog.title}}</h1>
+<h5>Created by : <b>{{viewBlog.username}}</b> | Created On : <b>{{viewBlog.timeStamp}}</b></h5>
+<h4>{{viewBlog.description}}</h4></div>
+        </div>
+       
+      </li>
+    </ul>
+    
+    
+ <div class="post__comments__new" ></div>   
+<h1>Post Comment Here</h1>
+<form name="form" ng-submit="bc.createBlogComment(bc.blogcomment)" role="form" method="post">
+<input type="textarea" class="form-control" placeholder="Enter comments here.." name="username" ng-model="bc.blogcomment.bcomments"/>
+<button type="submit" name="submit" class="btn btn-lg btn-info">Submit</button>
+</form>
+</div>
+  
+
+<div ng-repeat="b in bct ">
+By:<span ng-bind="b.userName"></span>
+
+
+      
+      <div class="text">Comments:<span ng-bind="b.bcomments"></span></div>
+      </div>
+      
+    </footer>
+</section>
+   
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+
+
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+ 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
+
+
+
+
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="User/UserController.js"></script>
+<script type="text/javascript" src="User/UserService.js"></script>
+<script type="text/javascript" src="Blog/BlogController.js"></script>
+<script type="text/javascript" src="Blog/BlogService.js"></script>
+
+<script type="text/javascript" src="Job/JobController.js"></script>
+<script type="text/javascript" src="Job/JobService.js"></script>
+<script type="text/javascript" src="Forum/ForumController.js"></script>
+<script type="text/javascript" src="Forum/ForumService.js"></script>
+<script type="text/javascript" src="BlogComment/BlogCommentService.js"></script>
+<script type="text/javascript" src="Friend/FriendService.js"></script>
+<script type="text/javascript" src="Friend/FriendController.js"></script>
+<script type="text/javascript" src="ApplyJob/ApplyJobService.js"></script>
+<script type="text/javascript" src="Comment/CommentService.js"></script>
+ <script src="js/sockjs/sockjs.js"></script>
+    <script src="js/stomp/dist/stomp.js"></script>
+
+
+<script type="text/javascript" src="Chat/ChatController.js"></script>
+<script type="text/javascript" src="Chat/ChatService.js"></script>
+<style>
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a;
+
+    background-image:  img src="https://chessdailynews.com/wp-content/uploads/2015/03/polgar_events2.jpg"
+    background-color: #cccccc; 
+     height: 100%;
+ 	background-repeat: no-repeat;
+ 	background:url(https://chessdailynews.com/wp-content/uploads/2015/03/polgar_events2.jpg);
+ 	font-family: 'Oxygen', sans-serif;
+	    background-size: cover;   
+}
+
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Pad the edges of the mobile views a bit */
+.marketing {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+.featurette {
+  padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+  overflow: hidden; /* Vertically center images part 2: clear their floats. */
+}
+.featurette-image {
+  margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+}
+
+/* Give some space on the sides of the floated elements so text doesn't run right into it. */
+.featurette-image.pull-left {
+  margin-right: 40px;
+}
+.featurette-image.pull-right {
+  margin-left: 40px;
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+  /* Remve the edge padding needed for mobile */
+  .marketing {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+    margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+  }
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+}
+
+
+</style>
+
+</head>
+<body ng-app="myApp" class="font">
+
+<div class="navbar-wrapper">
+  <div class="container">
+    <div class="navbar navbar-inverse navbar-static-top">
+      
+        <div class="navbar-header">
+	    <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </a>
+        <a class="navbar-brand" >Shoppee</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+          <li><a href="#home">Home</a></li>
+            <li><a href="#register" ng-hide="currentUser.name">Register</a></li>
+ <li><a href="#login" ng-hide="currentUser.name">Login</a></li>
+ 
+<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Job<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#savejobdetails" ng-show="currentUser.role=='ADMIN'">SaveJobDetails</a></li>
+                <li><a href="#viewJ">GetAllJobs</a></li>
+                <li><a href="#jobP" >Job Profile </a></li>
+              </ul>
+            </li>
+
+   <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+              <li><a href="#blog" ng-show="currentUser.role=='ADMIN'||currentUser.role=='STUDENT'">Blog</a></li>
+                <li><a href="#viewB">GetBlog</a></li>
+              </ul>
+            </li>
+  <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Friend <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">List of Suggested Users</a></li>
+                <li><a href="#">Friend List</a></li>
+              </ul>
+            </li>
+            
+ <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Forum<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#forum" ng-show="currentUser.role=='ADMIN'||currentUser.role=='STUDENT'">Create a Forum</a></li>
+                <li><a href="#viewF">List Forum</a></li>
+              </ul>
+            </li>
+            
+            <li><a href="#find" >Find Friends</a></li>
+  							
+
+<li><a href="#">Chat</a></li>
+           
+          </ul>
+        </div>
+        
+        
+           
+<ul class="nav navbar-nav navbar-right">
+ <li class="logout" ><a href="#logout" id="register" ng-click="uc.logout()" ng-show="currentUser.name">Sign Out</a></li>
+            
+          </ul>
+          
+          
+    </div>
+  </div><!-- /container -->
+</div><!-- /navbar wrapper -->
+
+
+
+ 
+
+  
+<div ng-view></div>
+
+  
+  <footer>
+    <p class="pull-right"><a href="#">Back to top</a></p>
+    <p><a href="#"></a></p>
+  </footer>
+  
+
+</body>
+</html>

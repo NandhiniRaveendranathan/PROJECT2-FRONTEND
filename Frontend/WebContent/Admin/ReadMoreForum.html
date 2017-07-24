@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<div><h4 style= "margin: 0px 0px 10px 0px; margin-left: 85%;"><a href="#forum" ng-show="currentUser.name">Create New Forum</a></h4></div>
+<div><h1 style="margin-top: 2em;">{{viewForumm.forumTitle}}</h1>
+<h5>Created by : <b>{{viewForumm.userName}}</b> | Created On : <b>{{viewForumm.timeStamp}}</b></h5>
+<h4>{{viewForumm.forumContent}}</h4></div>
+
+
+
+
+
+
+
+
+
+<h1>Post Comment Here</h1>
+<form name="form" ng-submit="fc.createComment(fc.comment)" role="form" method="post">
+<input type="textarea" class="form-control" placeholder="Enter comments here.." name="username" ng-model="fc.comment.comments"/>
+<button type="submit" name="submit" class="btn btn-lg btn-info">Submit</button>
+</form>
+
+<div ng-repeat="f in ct ">
+By:<span ng-bind="f.userName"></span>
+
+
+      
+      <div class="text">Comments:<span ng-bind="f.bcomments"></span></div>
+      </div>
+
+
+ </body> 
+</html>
